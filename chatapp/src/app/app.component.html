@@ -1,7 +1,11 @@
-<header class="header">
-  <h1 class="title">
-    {{title}}
-  </h1>
-</header>
-<app-chat-board></app-chat-board>
-<app-text-editor></app-text-editor>
+<main class="chat-main">
+  <h1> Chat app</h1>
+  <app-chat-board [messages]="messageList" [currentUser]="'Jon'"></app-chat-board>
+  <app-text-editor (messageSended)="handleMessage($event)"></app-text-editor>
+</main>
+<ul class="chat-users">
+  <li class="chat-user" *ngFor="let user of usersList">
+    <p>{{user.name.first}}</p>
+    <img [src]="user.picture.medium">
+  </li>
+</ul>

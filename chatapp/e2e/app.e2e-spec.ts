@@ -1,10 +1,10 @@
-import { StoreAppPage } from './app.po';
+import { ChatAppPage } from './app.po';
 
-describe('store-app App', () => {
-  let page: StoreAppPage;
+describe('chat-app App', () => {
+  let page: ChatAppPage;
 
   beforeEach(() => {
-    page = new StoreAppPage();
+    page = new ChatAppPage();
   });
 
   it('should display message saying app works', () => {

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { UsersService } from './users.service';
 
 @Component({
   selector: 'app-root',
@@ -6,13 +7,24 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  /**
+   * Repository of messages sended by text-editor component
+   */
+  messageList: Array<Object>;
+  usersList: any;
+
+  constructor(private usersService: UsersService) {
+    this.messageList = [];
+    usersService.getUsers().subscribe((data) => {
+      this.usersList = data.results;
+    });
+  }
 
   /**
-   * Title of the app
-   * @type {string}
+   * Update messages array from event
+   * @param ev
    */
-  title:string = 'Chat app';
-
-  constructor () {}
-
+  handleMessage(ev) {
+    this.messageList.push(ev);
+  }
 }

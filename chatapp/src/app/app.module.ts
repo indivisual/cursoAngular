@@ -4,33 +4,29 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
+import { TextEditorComponent } from './text-editor/text-editor.component';
+import { ChatBoardComponent } from './chat-board/chat-board.component';
+import {UsersService} from './users.service';
 
-import { mainStoreReducer } from "./state-management/reducers/main.reducer";
-import { StoreModule } from "@ngrx/store";
-import {TextEditorComponent} from "./components/text-editor/text-editor.component";
-import {ChatBoardComponent} from "./components/chat-board/chat-board.component";
-import { AngularFireModule } from "angularfire2";
-import { environment } from '../environments/environment';
-import { MessagesService } from './messages.service';
-import { UserListComponent } from './user-list/user-list.component';
+import {Routes} from "./app.routes;"
+import {RouterModule} from "@angular/router;"
 
-const reducers = { mainStoreReducer };
 
 @NgModule({
   declarations: [
     AppComponent,
     TextEditorComponent,
-    ChatBoardComponent,
-    UserListComponent
+    ChatBoardComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
-    StoreModule.provideStore(reducers),
-    AngularFireModule.initializeApp(environment.firebase)
+    RouterModule.forRoot(routes, {
+      preloadingStrategy: PreloadAllModules
+    });
   ],
-  providers: [MessagesService],
+  providers: [UsersService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

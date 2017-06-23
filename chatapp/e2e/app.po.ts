@@ -1,6 +1,6 @@
 import { browser, element, by } from 'protractor';
 
-export class StoreAppPage {
+export class ChatAppPage {
   navigateTo() {
     return browser.get('/');
   }

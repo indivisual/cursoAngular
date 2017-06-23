@@ -1,12 +1,13 @@
-.header {
-  background: black;
-  color: white;
-  height: 60px;
-  display:flex;
-  align-items: center;
+:host {
+  display: flex;
+  justify-content: space-between;
+  font-family: Helvetica;
 }
 
-.title {
-  font-size: 20px;
-  margin: 0;
+.chat-user {
+  list-style: none;
+  display: flex;
+  width: 100px;
+  justify-content: flex-end;
+  margin: 5px;
 }
