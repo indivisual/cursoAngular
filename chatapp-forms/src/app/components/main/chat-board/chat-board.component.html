@@ -1,0 +1,14 @@
+<ul class="chat-list">
+  <li
+    *ngFor="let message of messages; let i = index"
+    [@anim] = "field" 
+    (@anim.done)="goNext(i)" 
+	(click)="changer()" 
+    [ngClass]="{'message-left': i % 2 == 0}"
+   >
+
+        
+    <p class="name">{{ message.username }}: </p>
+    <p >{{ message.message }}</p>
+  </li>
+</ul>
