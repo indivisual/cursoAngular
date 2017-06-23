@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Home</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+  <ion-list>
+    <ion-item *ngFor="let message of messages; let i = index"
+        [ngClass]="{'message-left': i % 2 == 0}">
+      <ion-thumbnail item-start>
+        <img src="http://static2.wikia.nocookie.net/__cb20130106172453/assassinscreed/images/0/0e/Awesome_Face_Batman.png">
+      </ion-thumbnail>
+      <h2>{{ message.username }}</h2>
+      <p>{{ message.message }}</p>
+    </ion-item>
+  </ion-list>
+
+ <ion-list>
+
+  <ion-item>
+    <ion-input [(ngModel)]="username" type="text" placeholder="{{usernameLabel}}" id="username" name="username" required></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-input [(ngModel)]="message"  type="text" placeholder="{{messageLabel}}" id="message" name="message" required></ion-input>
+  </ion-item>
+
+  <button ion-button (click)="sendMessage()">{{buttonLabel}}</button>
+
+</ion-list>
+</ion-content>

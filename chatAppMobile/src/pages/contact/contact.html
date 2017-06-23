@@ -1,0 +1,41 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Contact
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+  
+
+<ion-content>
+  <ion-list>
+  <ion-item-sliding *ngFor="let user of usersList; let i = index" >
+    <ion-item>
+      <ion-avatar item-start>
+        <img [src]="user.picture.medium">
+      </ion-avatar>
+      <h2>{{user.name.first}}</h2>
+    </ion-item>
+    <ion-item-options side="left">
+      <button ion-button color="primary">
+        <ion-icon name="text"><a href="{{user.phone}}"></a></ion-icon>
+        Text
+      </button>
+      <button ion-button color="secondary">
+        <ion-icon name="call"><a href="tel:{{user.phone}}"></a></ion-icon>
+        Call
+      </button>
+    </ion-item-options>
+    <ion-item-options side="right">
+      <button ion-button color="primary">
+        <ion-icon name="mail"><a href="mailto:{{user.email}}"></a></ion-icon>
+        Email
+      </button>
+      <button ion-button color="secondary">
+        <ion-icon name="thumbs-down" (click)="sendMessage(i)"></ion-icon>
+        Kill
+      </button>
+    </ion-item-options>
+  </ion-item-sliding>
+</ion-list>
+</ion-content>
