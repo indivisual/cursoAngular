@@ -1,0 +1,17 @@
+:host {
+  display: flex;
+  justify-content: space-between;
+  font-family: Helvetica;
+}
+
+.chat-user {
+  list-style: none;
+  display: flex;
+  width: 100px;
+  justify-content: flex-end;
+  margin: 5px;
+}
+
+a.active {
+  color: red;
+}

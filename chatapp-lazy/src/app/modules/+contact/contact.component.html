@@ -1,0 +1,7 @@
+<ul class="chat-users">
+  <li class="chat-user" *ngFor="let user of usersList">
+    <p>{{user.name.first}}</p>
+    <img [src]="user.picture.medium">
+  </li>
+</ul>
+
